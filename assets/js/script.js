@@ -47,6 +47,10 @@ createApp({
             if (this.activeSlide < 0) {
                 this.activeSlide = this.slides.length - 1;
             }
+        },
+
+        thumbActive(index){
+            return index === this.activeSlide
         }
     },
 
