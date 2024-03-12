@@ -29,6 +29,7 @@
                 <div class="thumbs">
                     <div class="prev" @click="prev()"></div>
                     <div class="next" @click="next()"></div>
+                    <!-- Qui per far si che il click sull'immagine nel thumb cambi ho dovuto modificare la funzione thumbActive da un identicità ad una un assegnazione (inserisco direttamente l'assegnazione senza creare una nuova funzione, It works.)) -->
                     <div class="thumb" :class="{active: thumbActive(index)}" v-for="(thumb, index) in slides" :key="index"  @click="activeSlide = index" >
                         <img :src="thumb.image" :alt="thumb.title" >
                     </div>
