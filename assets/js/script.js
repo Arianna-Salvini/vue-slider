@@ -33,6 +33,10 @@ createApp({
             ]
         }
     },
+// Attivare la funzione di autoplay secondo il Cycle Life Hooks
+    mounted(){
+        this.autoPlay()
+    },
 
     methods: {
         next() {
@@ -45,14 +49,21 @@ createApp({
         prev() {
             this.activeSlide--
             if (this.activeSlide < 0) {
-                this.activeSlide = this.slides.length - 1;
+                this.activeSlide = this.slides.length - 1
             }
         },
 
-        thumbActive(index){
-          return  this.activeSlide === index
+        // creao una funzione per evidenziare l'immagine attivata nel thumb secondo lo style dell⁄'attributo class 'active'
+        thumbActive(index) {
+            return this.activeSlide === index
         },
 
+
+    // applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente
+
+        autoPlay() {
+            this.autoplay = setInterval(() => {this.next()},3000)
+        }
     },
 
 }).mount('#app')
