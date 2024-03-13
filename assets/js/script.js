@@ -33,10 +33,6 @@ createApp({
             ]
         }
     },
-// Attivare la funzione di autoplay secondo il Cycle Life Hooks
-    mounted(){
-        this.autoPlay()
-    },
 
     methods: {
         next() {
@@ -63,7 +59,16 @@ createApp({
 
         autoPlay() {
             this.autoplay = setInterval(() => {this.next()},3000)
+        },
+
+        stopAutoPlay(){
+            clearInterval(this.autoplay)
         }
+    },
+
+    // Attivare la funzione di autoplay secondo il Cycle Life Hooks
+    mounted(){
+        this.autoPlay()
     },
 
 }).mount('#app')
